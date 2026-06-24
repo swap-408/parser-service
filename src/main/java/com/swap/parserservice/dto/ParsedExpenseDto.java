@@ -15,8 +15,13 @@ public class ParsedExpenseDto {
 
     private String userEmail;
     private BigDecimal amount;
+    private String currency;
     private String merchant;
     private String category;
-    private String source;
+    private String transactionType;
+    private String bank;
+    private String last4;
+    private String transactionDateTime;
+    private Double confidence;
     private String rawMessage;
 }

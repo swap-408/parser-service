@@ -21,6 +21,9 @@ public class SmsConsumer {
     @KafkaListener(topics = "sms.received", groupId = "parser-group")
     public void consume(SmsEventDto event) {
         ParsedExpenseDto parsed = aiSmsParserService.parse(event);
+        if (parsed == null) {
+            return;
+        }
         parsedExpenseProducer.publish(parsed);
     }
 }
